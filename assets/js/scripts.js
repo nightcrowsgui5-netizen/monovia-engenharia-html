@@ -38,14 +38,9 @@ Version      : 1.0
 			var $this = $(this);
 			var width = $(this).data('percent');
 			$this.css({
-				'transition' : 'width 2s'
+				'transition' : 'none',
+				'width' : width + '%'
 			});
-			
-			setTimeout(function() {
-				$this.appear(function() {
-						$this.css('width', width + '%');
-				});
-			}, 500);
 		});
 		/*END PROGRESS BAR*/		
 		
@@ -54,24 +49,6 @@ Version      : 1.0
             type: 'iframe'
         });
 		/*END VIDEO JS*/		
-		
-		/* START COUNTDOWN JS*/
-		$('.counter_feature').on('inview', function(event, visible, visiblePartX, visiblePartY) {
-			if (visible) {
-				$(this).find('.counter-num').each(function () {
-					var $this = $(this);
-					$({ Counter: 0 }).animate({ Counter: $this.text() }, {
-						duration: 2000,
-						easing: 'swing',
-						step: function () {
-							$this.text(Math.ceil(this.Counter));
-						}
-					});
-				});
-				$(this).unbind('inview');
-			}
-		});
-		/* END COUNTDOWN JS */
 		
 		/*START PARTNER LOGO*/
 		$('.partner').owlCarousel({
@@ -99,12 +76,7 @@ Version      : 1.0
 	}());
 	/* END PARALLAX JS  */	
 
-	/*START WOW ANIMATION JS*/
-	  new WOW().init();	
-	/*END WOW ANIMATION JS*/	
-				
 })(jQuery);
 
 
   
-
